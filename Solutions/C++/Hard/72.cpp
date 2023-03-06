@@ -1,6 +1,6 @@
 /*
     dp[i][j] is the minimum number of operations required to convert word1 of size i
-    to word2 of size j. If the characters are equal we can perform only one operation:
+    to word2 of size j. If the characters are equal we can't perform an operation:
         * dp[i][j] + 0 operations = dp[i + 1][j + 1]
     If the characters are different we can perform 3 operations:
         * dp[i][j] + 1 replacement = dp[i + 1][j + 1]

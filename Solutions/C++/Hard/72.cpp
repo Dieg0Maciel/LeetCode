@@ -1,12 +1,16 @@
 /*
-    Bottom-up iterative DP solution.
     dp[i][j] is the minimum number of operations required to convert word1 of size i
     to word2 of size j. If the characters are equal we can perform only one operation:
-        NOTHING:  from dp[i - 1][j - 1]  add 0 operations to obtain  dp[i][j]
+        * dp[i][j] + 0 operations = dp[i + 1][j + 1]
     If the characters are different we can perform 3 operations:
-        REPLACE: from dp[i - 1][j - 1]  add 1 operation to obtain dp[i][j]
-        DELETE: from dp[i - 1][j]  add 1 operations to obtain  dp[i][j]
-        INSERT: from dp[i][j - 1]  add 1 operations to obtain  dp[i][j]
+        * dp[i][j] + 1 replacement = dp[i + 1][j + 1]
+        * dp[i][j] + 1 deletion = dp[i + 1][j]
+        * dp[i][j] + 1 insertion = dp[i][j + 1]
+    For the bottom-up iterative DP solution the recursive relation can be rewritten as:
+        if word1[i - 1] == word2[j - 1]:
+            dp[i][j] = dp[i - 1][j - 1]
+        else:
+            dp[i][j] = 1 + min(dp[i - 1][j - 1], dp[i - 1][j], dp[i][j - 1])
 */
 
 class Solution {

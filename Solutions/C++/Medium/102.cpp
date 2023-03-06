@@ -1,3 +1,7 @@
+/*
+    We perform Breadth-First-Search where the values of the nodes at the same depth are stored together in a vector.
+*/
+
 class Solution {
 public:
     std::vector<std::vector<int>> levelOrder(TreeNode* root) {

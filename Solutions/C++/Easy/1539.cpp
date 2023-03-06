@@ -1,24 +1,24 @@
+/*
+    * The number of missing elements before arr[i] is: arr[i] - (i + 1)
+    * With binary search we find the index left such that: arr[left] - (left + 1) >= k
+    * The kth smallest element should be between arr[left - 1] and arr[left]:
+        result = arr[left - 1] + (k - (arr[left - 1] - (left - 1 + 1)))
+        result = k + left
+*/ 
+
 class Solution {
 public:
     int findKthPositive(vector<int>& arr, int k) {
-        int n = arr.size();
-        if (arr[n - 1] - n < k) {
-            return k + n;
-        } else {
-            int i = 0;
-            int missing = 0;
-            for (int j = 1; j < arr[n - 1]; j++) {
-                if (j == arr[i]) {
-                    i++;
-                } else {
-                    missing++;
-                }
-                if (missing == k) {
-                    missing = j;
-                    break;
-                }
+        int left = 0;
+        int right = arr.size() - 1;
+        while (left <= right) {
+            int mid = left + (right - left) / 2;
+            if (arr[mid] - (mid + 1) < k) {
+                left = mid + 1;
+            } else {
+                right = mid - 1;
             }
-            return missing;
-        } 
+        }
+        return k + left;
     }
 };

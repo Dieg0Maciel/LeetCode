@@ -7,10 +7,12 @@
         * dp[i][j] + 1 deletion = dp[i + 1][j]
         * dp[i][j] + 1 insertion = dp[i][j + 1]
     For the bottom-up iterative DP solution the recursive relation can be rewritten as:
-        if word1[i - 1] == word2[j - 1]:
-            dp[i][j] = dp[i - 1][j - 1]
-        else:
-            dp[i][j] = 1 + min(dp[i - 1][j - 1], dp[i - 1][j], dp[i][j - 1])
+        if (word1[i - 1] == word2[j - 1]) {
+            dp[i][j] = dp[i - 1][j - 1];
+        } else {
+            int tmp = std::min(dp[i - 1][j], dp[i][j - 1]);
+            dp[i][j] = 1 + std::min(dp[i - 1][j - 1], tmp);
+        }
 */
 
 class Solution {

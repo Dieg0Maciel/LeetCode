@@ -1,3 +1,7 @@
+"""
+    We perform Breadth-First-Search where the values of the nodes at the same depth are stored together in a list.
+"""
+
 class Solution:
     def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
         result: List[List[int]] = []

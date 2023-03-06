@@ -1,14 +1,18 @@
+"""
+    * The number of missing elements before arr[i] is: arr[i] - (i + 1)
+    * With binary search we find the index left such that: arr[left] - (left + 1) >= k
+    * The kth smallest element should be between arr[left - 1] and arr[left]:
+        result = arr[left - 1] + (k - (arr[left - 1] - (left - 1 + 1)))
+        result = k + left
+"""
+
 class Solution:
-    def findKthPositive(self, arr: List[int], k: int) -> int:
-        n = len(arr)
-        if arr[n - 1] - n < k:
-            return k + n
-        else:
-            i, missing = 0, 0
-            for j in range(1, arr[n - 1]):
-                if j == arr[i]:
-                    i += 1
-                else:
-                    missing += 1
-                if missing == k:
-                    return j
+    def findKthPositive(self, arr: List[int], k: int) -> int: 
+        left, right = 0, len(arr) - 1
+        while left <= right:
+            mid = left + (right - left) // 2
+            if arr[mid] - (mid + 1) < k:
+                left = mid + 1
+            else:
+                right = mid - 1
+        return k + left

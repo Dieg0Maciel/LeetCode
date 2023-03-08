@@ -4,8 +4,8 @@
         
     * We can loop through each value of T and calculate the number of total trips:
         numberOfTrips = 0
-        for t in time:
-            numberOfTrips += T[i] / t
+        for (int j = 0; j < timeSize; j++)
+            numberOfTrips += T[i] / time[j]
             
     * The first T[i] for which (numberOfTrips >= totalTrips) is true corresponds to minimunTime.
     * Notice that the array T is ordered and can be divided into two regions

@@ -9,7 +9,7 @@
 """
 
 class Solution:
-    def eatingTime(self, piles: List[int], k: int) -> bool:
+    def eatingTime(self, piles: List[int], k: int) -> int:
         time = 0
         for pile in piles:
             time += math.ceil(pile / k)

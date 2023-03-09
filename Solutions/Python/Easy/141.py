@@ -1,6 +1,5 @@
 """
-  Create a fast node and a slow node to traverse the list, if there is a cycle both 
-  nodes will meet at the end of the list, just before the cycle begins.
+  Create a fast node and a slow node to traverse the list, if there is a cycle both nodes will meet.
 """
 
 class Solution:

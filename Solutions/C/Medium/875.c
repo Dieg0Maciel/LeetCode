@@ -37,8 +37,8 @@ int minEatingSpeed(int* piles, int pilesSize, int h) {
     int result = right;
     while (left <= right) {
         int mid = left + (right - left) / 2;
-        if (eatingTime(piles, mid) <= h) {
-            result = min(result, mid);
+        if (eatingTime(piles, pilesSize, mid) <= h) {
+            result = fmin(result, mid);
             right = mid - 1;
         } else {
             left = mid + 1;

@@ -7,29 +7,27 @@
 class Solution {
 public:
     TreeNode* sortedListToBST(ListNode* head) {
-        if (!head) {
+         if (!head) {
             return nullptr;
-        }
-        if (!head->next) {
+         }
+         if (!head->next) {
             TreeNode* root = new TreeNode(head->val);
             return root; 
-        }
-        ListNode* slow = head;
-        ListNode* fast = head;
-        while (fast && fast->next) {
+         }
+         ListNode* slow = head;
+         ListNode* fast = head;
+         while (fast && fast->next) {
             fast = fast->next->next;
             slow = slow->next;
-        }
-        ListNode* tmp = head;
-        while (tmp->ext != slow) {
+         }
+         ListNode* tmp = head;
+         while (tmp->next != slow) {
             tmp = tmp->next;
-        }
-        tmp->next = nullptr;
-        root->left = sortedListToBST(head)
-        root->right = sortedListToBST(slow->next)
-      }
+         }
+         tmp->next = nullptr;
+         TreeNode* root = new TreeNode(slow->val);
+         root->left = sortedListToBST(head);
+         root->right = sortedListToBST(slow->next);
+         return root;
     }
 };
-/*
-        return root
-*/
